@@ -1,0 +1,12 @@
+[core]
+        editor = vim
+[push]
+        default = current
+[alias]
+        co = checkout
+        ci = commit
+        st = status
+        br = branch
+        graph = log --graph --oneline --abbrev-commit
+        addp = add -p
+        last = log -1 HEAD

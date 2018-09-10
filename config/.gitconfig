@@ -1,7 +1,10 @@
+[user]
+        name = AJ Alon
 [core]
         editor = vim
 [push]
         default = current
+        gpgSign = if-asked
 [alias]
         co = checkout
         ci = commit
@@ -10,3 +13,9 @@
         graph = log --graph --oneline --abbrev-commit
         addp = add -p
         last = log -1 HEAD
+        rebaseia = rebase -i --autosquash
+[stash]
+        showPatch = true
+[rebase]
+        missingCommitsCheck = error
+        autoSquash = true

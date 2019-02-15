@@ -8,11 +8,15 @@
 [alias]
         co = checkout
         ci = commit
+        cp = cherry-pick
         st = status
         br = branch
         graph = log --graph --oneline --abbrev-commit
-        addp = add -p
+        adp = add -p
+        cop = checkout -p -- .
+        rhp = reset HEAD -p
         last = log -1 HEAD
+        last3 = log -3 HEAD
         rebaseia = rebase -i --autosquash
 [stash]
         showPatch = true

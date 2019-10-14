@@ -15,8 +15,9 @@
         adp = add -p
         cop = checkout -p -- .
         rhp = reset HEAD -p
-        last = log -1 HEAD
-        last3 = log -3 HEAD
+        l = log -1 HEAD
+        l2 = log -2 HEAD
+        l3 = log -3 HEAD
         rebaseia = rebase -i --autosquash
 [stash]
         showPatch = true

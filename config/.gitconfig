@@ -1,7 +1,9 @@
 [user]
         name = AJ Alon
 [core]
-        editor = vim
+        editor = code --wait
+        # editor = vim
+        # if code isn't available and not on cli
 [push]
         default = current
         gpgSign = if-asked

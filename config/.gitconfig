@@ -1,5 +1,6 @@
 [user]
         name = AJ Alon
+        email = alexander.joel.alon@gmail.com
 [core]
         editor = code --wait
         # editor = vim
@@ -21,8 +22,11 @@
         l2 = log -2 HEAD
         l3 = log -3 HEAD
         rebaseia = rebase -i --autosquash
+        pfwl = push --force-with-lease
 [stash]
         showPatch = true
 [rebase]
         missingCommitsCheck = error
         autoSquash = true
+[branch]
+        autosetuprebase = always

@@ -146,12 +146,8 @@ alias k=kubectl
 # if I have GNU tools brew-installed, add them to PATH
 # inspired by https://stackoverflow.com/a/23357277/914510
 # works with BSD find and GNU find
-gnubins=()
-while IFS=  read -r -d $'\0'; do
-    gnubins+=("$REPLY")
+while IFS=  read -r -d $'\0' GNUBIN; do
+    [[ :$PATH: == *":$GNUBIN:"* ]] || PATH="$GNUBIN:$PATH"
 done < <(find /usr/local/opt -type d -follow -name gnubin -print0)
-for bindir in "${gnubins[@]}"; do
-  prependtopath ${bindir}
-done;
 
 export PATH

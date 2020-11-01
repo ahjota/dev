@@ -141,7 +141,7 @@ compinit
 # <<<<  Vagrant command completion (end)
 
 # personal alias
-alias k=kubectl
+command kubectl >/dev/null 2>&1 && alias k=kubectl
 
 # if I have GNU tools brew-installed, add them to PATH
 # inspired by https://stackoverflow.com/a/23357277/914510

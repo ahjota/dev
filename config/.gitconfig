@@ -24,8 +24,11 @@
         l = log -1 HEAD
         l2 = log -2 HEAD
         l3 = log -3 HEAD
+        # https://davidwalsh.name/get-default-branch-name
+        default-branch = git remote show origin | grep 'HEAD branch' | cut -d' ' -f5
         rebaseia = rebase -i --autosquash
-        pfwl = push --force-with-lease
+        rebaseiam = !git rebase -i --autosquash $(git default-branch)
+        please = push --force-with-lease
         praise = blame
 [stash]
         showPatch = true

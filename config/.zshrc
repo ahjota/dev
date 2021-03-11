@@ -132,16 +132,23 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 # Yarn
 prependtopath $HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin
 
+# Go
+export GOROOT='/usr/local/go'
+prependtopath ${GOROOT}/bin
+appendtopath "$(go env GOPATH)/bin"
+
 # thefuck
 eval $(thefuck --alias)
 
 # >>>> Vagrant command completion (start)
-fpath=(/opt/vagrant/embedded/gems/2.2.10/gems/vagrant-2.2.10/contrib/zsh $fpath)
+fpath=(/opt/vagrant/embedded/gems/2.2.14/gems/vagrant-2.2.14/contrib/zsh $fpath)
 compinit
 # <<<<  Vagrant command completion (end)
 
 # personal alias
 command kubectl >/dev/null 2>&1 && alias k=kubectl
+
+pman() { man -t "$@" | open -f -a Preview; }
 
 # if I have GNU tools brew-installed, add them to PATH
 # inspired by https://stackoverflow.com/a/23357277/914510
@@ -149,5 +156,3 @@ command kubectl >/dev/null 2>&1 && alias k=kubectl
 while IFS=  read -r -d $'\0' GNUBIN; do
     [[ :$PATH: == *":$GNUBIN:"* ]] || PATH="$GNUBIN:$PATH"
 done < <(find /usr/local/opt -type d -follow -name gnubin -print0)
-
-export PATH

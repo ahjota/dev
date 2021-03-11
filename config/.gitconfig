@@ -8,6 +8,17 @@
 [push]
         default = current
         gpgSign = if-asked
+[stash]
+        showPatch = true
+[rebase]
+        missingCommitsCheck = error
+        autoSquash = true
+[branch]
+        autosetuprebase = always
+[credential]
+        helper = osxkeychain
+[checkout]
+        defaultRemote = origin
 [alias]
         co = checkout
         ci = commit
@@ -30,12 +41,3 @@
         rebaseiam = !git rebase -i --autosquash $(git default-branch)
         please = push --force-with-lease
         praise = blame
-[stash]
-        showPatch = true
-[rebase]
-        missingCommitsCheck = error
-        autoSquash = true
-[credential]
-        helper = osxkeychain
-[branch]
-        autosetuprebase = always

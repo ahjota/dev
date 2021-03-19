@@ -61,3 +61,6 @@ while IFS=  read -r -d $'\0' GNUBIN; do
 done < <(find /usr/local/opt -type d -follow -name gnubin -print0)
 
 [ -f ~/workspace/aj/config/work/dr/.datarobot.zshrc ] && source ~/workspace/aj/config/work/dr/.datarobot.zshrc
+
+# vim keybindings in shell
+bindkey -v

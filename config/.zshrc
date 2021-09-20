@@ -14,7 +14,7 @@ plugins=(
   docker
   docker-compose
   encode64
-  vagrant
+  ssh-agent
   yarn
 )
 
@@ -42,11 +42,6 @@ appendtopath "$(go env GOPATH)/bin"
 
 # thefuck
 eval $(thefuck --alias)
-
-# >>>> Vagrant command completion (start)
-fpath=(/opt/vagrant/embedded/gems/2.2.14/gems/vagrant-2.2.14/contrib/zsh $fpath)
-compinit
-# <<<<  Vagrant command completion (end)
 
 # personal alias
 command kubectl >/dev/null 2>&1 && alias k=kubectl

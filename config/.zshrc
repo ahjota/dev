@@ -61,3 +61,7 @@ done < <(find /usr/local/opt -type d -follow -name gnubin -print0)
 
 # vim keybindings in shell
 bindkey -v
+
+# for mtr to work
+# https://medium.com/macos-sh/mtr-my-traceroute-replacement-7827bd8efa42
+PATH=$PATH:/usr/local/sbin

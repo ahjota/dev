@@ -3,11 +3,14 @@
         email = alexander.joel.alon@gmail.com
 [core]
         editor = code --wait
-        # editor = vim
-        # if code isn't available and not on cli
+        # run git-config.sh
+[init]
+	defaultBranch = main
 [push]
         default = current
         gpgSign = if-asked
+[pull]
+	rebase = true
 [stash]
         showPatch = true
 [rebase]

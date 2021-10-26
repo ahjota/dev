@@ -1,7 +1,6 @@
 ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
 plugins=(
-  zsh_reload
   history-substring-search
   z
   fzf

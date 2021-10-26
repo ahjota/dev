@@ -46,7 +46,9 @@ eval $(thefuck --alias)
 # personal alias
 command kubectl >/dev/null 2>&1 && alias k=kubectl
 
-pman() { man -t "$@" | open -f -a Preview; }
+# open manpage in Preview
+# TODO wonky if man errors out
+pman() { man -t "$@" | open -f -a Preview || ; }
 
 # if I have GNU tools brew-installed, add them to PATH
 # inspired by https://stackoverflow.com/a/23357277/914510

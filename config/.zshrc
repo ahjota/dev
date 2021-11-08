@@ -6,7 +6,7 @@ plugins=(
   fzf
   git
   git-auto-fetch
-  osx
+  macos
   brew
   thefuck
   vscode
@@ -35,7 +35,6 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 prependtopath $HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin
 
 # Go
-
 export GOROOT='/usr/local/go'
 prependtopath ${GOROOT}/bin
 [[ -e go ]] && appendtopath "$(go env GOPATH)/bin" || echo "Go is not installed"

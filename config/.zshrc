@@ -1,79 +1,96 @@
-ZSH_THEME="robbyrussell"
-COMPLETION_WAITING_DOTS="true"
-plugins=(
-  history-substring-search
-  z
-  fzf
-  git
-  git-auto-fetch
-  macos
-  brew
-  thefuck
-  vscode
-  docker
-  encode64
-  ssh-agent
-)
+# enable Zi, loading it if necessary
+# ref: https://wiki.zshell.dev/docs/getting_started/installation#-minimal-configuration-with-loader
+if [[ -r "/Users/aj/.config/zi/init.zsh" ]]; then
+  source "/Users/aj/.config/zi/init.zsh" && zzinit
+else
+  #  TODO move to a bootstrap
+  echo "zinit is not installed"
+  sh -c "$(curl -fsSL https://git.io/get-zi)" -- -a loader
+fi
+
+# install OMZ libs
+zi wait'!' lucid for \
+  OMZL::clipboard.zsh \
+  OMZL::functions.zsh \
+  OMZL::misc.zsh
+
+# install plugins
+
+# OMZ MacOS
+zi ice svn wait'!0' has'sw_vers'  # sw_vers is MacOS only
+zi snippet OMZP::macos
+
+# OMZ VSCode
+zi ice has'code'  # code == Visual Studio Code
+zi snippet OMZP::vscode
+
+zi load unixorn/fzf-zsh-plugin
 
 # User configuration
 export WORKSPACE="$HOME/workspace"
 export AJ_CONFIG="$WORKSPACE/aj/config"
 
-function appendtopath() {
-  [[ :$PATH: == *":$1:"* ]] || PATH+=":$1"
-}
+# ZSH_THEME="robbyrussell"
+# COMPLETION_WAITING_DOTS="true"
+# plugins=(
+#   history-substring-search
+#   z
+#   fzf
+#   git
+#   git-auto-fetch
+#   brew
+#   thefuck
+#   docker
+#   docker-compose
+#   encode64
+#   ssh-agent
+#   yarn
+# )
 
-function prependtopath() {
-  [[ :$PATH: == *":$1:"* ]] || PATH="$1:$PATH"
-}
+# # User configuration
+# export WORKSPACE="$HOME/workspace"
 
-function prependalltopath() {
-  for var in $1
-  do
-    [ -d $var ] && prependtopath $var || echo $var does not exist
-  done
-}
+# function appendtopath() {
+#   [[ :$PATH: == *":$1:"* ]] || PATH+=":$1"
+# }
 
-# n
-export N_PREFIX="$HOME/n"    # Added by n-install (see http://git.io/n-install-repo).
-appendtopath $N_PREFIX/bin
+# function prependtopath() {
+#   [[ :$PATH: == *":$1:"* ]] || PATH="$1:$PATH"
+# }
 
-# Yarn
-prependalltopath $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin
+# # n
+# export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-# Go
-export GOROOT='/usr/local/go'
-prependtopath ${GOROOT}/bin
-[[ -e go ]] && appendtopath "$(go env GOPATH)/bin" || echo "Go is not installed"
+# # Yarn
+# prependtopath $HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin
 
-# Python
-alias mypydiff='git diff --staged --name-only | xargs mypy'
+# # Go
+# export GOROOT='/usr/local/go'
+# prependtopath ${GOROOT}/bin
+# [[ -e go ]] && appendtopath "$(go env GOPATH)/bin" || echo "Go is not installed"
 
-# thefuck
-eval $(thefuck --alias)
+# # thefuck
+# eval $(thefuck --alias)
 
-# personal alias
-command -v kubectl >/dev/null && alias k=kubectl
+# # personal alias
+# command kubectl >/dev/null 2>&1 && alias k=kubectl
 
-# if I have GNU tools brew-installed, add them to PATH
-# inspired by https://stackoverflow.com/a/23357277/914510
-# works with BSD find and GNU find
+# # open manpage in Preview
+# # TODO wonky if man errors out
+# pman() { man -t "$@" | open -f -a Preview || ; }
+
+# # if I have GNU tools brew-installed, add them to PATH
+# # inspired by https://stackoverflow.com/a/23357277/914510
+# # works with BSD find and GNU find
 # while IFS=  read -r -d $'\0' GNUBIN; do
-#    [[ :$PATH: == *":$GNUBIN:"* ]] || PATH="$GNUBIN:$PATH"
+#     [[ :$PATH: == *":$GNUBIN:"* ]] || PATH="$GNUBIN:$PATH"
 # done < <(find /usr/local/opt -type d -follow -name gnubin -print0)
-# TODO The above is way too slow
-prependalltopath /usr/local/opt/findutils/libexec/gnubin /usr/local/opt/gawk/libexec/gnubin /usr/local/opt/gsed/libexec/gnubin /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/grep/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/libtool/libexec/gnubin
 
-[ -f ${AJ_CONFIG}/work/dr/.datarobot.zshrc ] && source ${AJ_CONFIG}/work/dr/.datarobot.zshrc
+# [ -f ~/workspace/aj/config/work/dr/.datarobot.zshrc ] && source ~/workspace/aj/config/work/dr/.datarobot.zshrc
 
-# vim keybindings in shell
-bindkey -v
+# # vim keybindings in shell
+# bindkey -v
 
-# for mtr to work
-# https://medium.com/macos-sh/mtr-my-traceroute-replacement-7827bd8efa42
-appendtopath /usr/local/sbin
-
-if [[ $(command -v starship) ]] then
-	export STARSHIP_CONFIG=${AJ_CONFIG}/starship.toml
-	eval $(starship init zsh)
-fi
+# # for mtr to work
+# # https://medium.com/macos-sh/mtr-my-traceroute-replacement-7827bd8efa42
+# PATH=$PATH:/usr/local/sbin

@@ -24,6 +24,13 @@ zi snippet OMZP::macos
 zi ice has'code'  # code == Visual Studio Code
 zi snippet OMZP::vscode
 
+# install completions
+zi wait lucid blockf
+zi load zsh-users/zsh-completions
+
+zi ice as"completion"
+zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+
 zi load unixorn/fzf-zsh-plugin
 
 # User configuration
@@ -40,8 +47,6 @@ export AJ_CONFIG="$WORKSPACE/aj/config"
 #   git-auto-fetch
 #   brew
 #   thefuck
-#   docker
-#   docker-compose
 #   encode64
 #   ssh-agent
 #   yarn
@@ -75,18 +80,12 @@ export AJ_CONFIG="$WORKSPACE/aj/config"
 # # personal alias
 # command kubectl >/dev/null 2>&1 && alias k=kubectl
 
-# # open manpage in Preview
-# # TODO wonky if man errors out
-# pman() { man -t "$@" | open -f -a Preview || ; }
-
 # # if I have GNU tools brew-installed, add them to PATH
 # # inspired by https://stackoverflow.com/a/23357277/914510
 # # works with BSD find and GNU find
 # while IFS=  read -r -d $'\0' GNUBIN; do
 #     [[ :$PATH: == *":$GNUBIN:"* ]] || PATH="$GNUBIN:$PATH"
 # done < <(find /usr/local/opt -type d -follow -name gnubin -print0)
-
-# [ -f ~/workspace/aj/config/work/dr/.datarobot.zshrc ] && source ~/workspace/aj/config/work/dr/.datarobot.zshrc
 
 # # vim keybindings in shell
 # bindkey -v

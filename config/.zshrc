@@ -17,7 +17,8 @@ zi wait'!' lucid for \
 # install plugins
 
 # z.sh
-zinit load agkozak/zsh-z
+zi ice blockf
+zi load agkozak/zsh-z
 
 # OMZ MacOS
 zi ice svn wait'!0' has'sw_vers'  # sw_vers is MacOS only

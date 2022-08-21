@@ -16,6 +16,9 @@ zi wait'!' lucid for \
 
 # install plugins
 
+# z.sh
+zinit load agkozak/zsh-z
+
 # OMZ MacOS
 zi ice svn wait'!0' has'sw_vers'  # sw_vers is MacOS only
 zi snippet OMZP::macos
@@ -25,11 +28,14 @@ zi ice has'code'  # code == Visual Studio Code
 zi snippet OMZP::vscode
 
 # install completions
-zi wait lucid blockf
+zi ice wait lucid blockf
 zi load zsh-users/zsh-completions
 
-zi ice as"completion"
+zi ice as"completion" has'docker'
 zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+
+zi ice wait'!0' has'kubectl'
+zi snippet OMZP::kubectl
 
 zi load unixorn/fzf-zsh-plugin
 

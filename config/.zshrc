@@ -28,15 +28,13 @@ zi snippet OMZP::macos
 zi ice has'code'  # code == Visual Studio Code
 zi snippet OMZP::vscode
 
-# install completions
+# completions
 zi ice wait lucid blockf
 zi load zsh-users/zsh-completions
 
+# docker CLI
 zi ice as"completion" has'docker'
 zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
-
-zi ice wait'!0' has'kubectl'
-zi snippet OMZP::kubectl
 
 zi load unixorn/fzf-zsh-plugin
 

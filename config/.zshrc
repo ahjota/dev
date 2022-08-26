@@ -58,9 +58,11 @@ pman() { man -t "$@" | open -f -a Preview || ; }
 # if I have GNU tools brew-installed, add them to PATH
 # inspired by https://stackoverflow.com/a/23357277/914510
 # works with BSD find and GNU find
-while IFS=  read -r -d $'\0' GNUBIN; do
-    [[ :$PATH: == *":$GNUBIN:"* ]] || PATH="$GNUBIN:$PATH"
-done < <(find /usr/local/opt -type d -follow -name gnubin -print0)
+# while IFS=  read -r -d $'\0' GNUBIN; do
+#    [[ :$PATH: == *":$GNUBIN:"* ]] || PATH="$GNUBIN:$PATH"
+# done < <(find /usr/local/opt -type d -follow -name gnubin -print0)
+# TODO The above is way too slow
+prependalltopath /usr/local/opt/findutils/libexec/gnubin /usr/local/opt/gawk/libexec/gnubin /usr/local/opt/gsed/libexec/gnubin /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/grep/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/libtool/libexec/gnubin
 
 [ -f ~/workspace/aj/config/work/dr/.datarobot.zshrc ] && source ~/workspace/aj/config/work/dr/.datarobot.zshrc
 

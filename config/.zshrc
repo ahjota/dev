@@ -26,6 +26,13 @@ function prependtopath() {
   [[ :$PATH: == *":$1:"* ]] || PATH="$1:$PATH"
 }
 
+function prependalltopath() {
+  for var in $1
+  do
+    [ -d $var ] && prependtopath $var || echo $var does not exist
+  done
+}
+
 # n
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 

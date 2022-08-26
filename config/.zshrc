@@ -70,4 +70,4 @@ bindkey -v
 
 # for mtr to work
 # https://medium.com/macos-sh/mtr-my-traceroute-replacement-7827bd8efa42
-PATH=$PATH:/usr/local/sbin
+appendtopath /usr/local/sbin

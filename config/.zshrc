@@ -45,6 +45,9 @@ export GOROOT='/usr/local/go'
 prependtopath ${GOROOT}/bin
 [[ -e go ]] && appendtopath "$(go env GOPATH)/bin" || echo "Go is not installed"
 
+# Python
+alias mypydiff='git diff --staged --name-only | xargs mypy'
+
 # thefuck
 eval $(thefuck --alias)
 

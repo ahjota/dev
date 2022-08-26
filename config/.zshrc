@@ -34,10 +34,11 @@ function prependalltopath() {
 }
 
 # n
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+export N_PREFIX="$HOME/n"    # Added by n-install (see http://git.io/n-install-repo).
+appendtopath $N_PREFIX/bin
 
 # Yarn
-prependtopath $HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin
+prependalltopath $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin
 
 # Go
 export GOROOT='/usr/local/go'

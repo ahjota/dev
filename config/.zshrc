@@ -11,10 +11,8 @@ plugins=(
   thefuck
   vscode
   docker
-  docker-compose
   encode64
   ssh-agent
-  yarn
 )
 
 # User configuration

@@ -17,6 +17,7 @@ plugins=(
 
 # User configuration
 export WORKSPACE="$HOME/workspace"
+export AJ_CONFIG="$WORKSPACE/aj/config"
 
 function appendtopath() {
   [[ :$PATH: == *":$1:"* ]] || PATH+=":$1"
@@ -63,7 +64,7 @@ command -v kubectl >/dev/null && alias k=kubectl
 # TODO The above is way too slow
 prependalltopath /usr/local/opt/findutils/libexec/gnubin /usr/local/opt/gawk/libexec/gnubin /usr/local/opt/gsed/libexec/gnubin /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/grep/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/libtool/libexec/gnubin
 
-[ -f ~/workspace/aj/config/work/dr/.datarobot.zshrc ] && source ~/workspace/aj/config/work/dr/.datarobot.zshrc
+[ -f ${AJ_CONFIG}/work/dr/.datarobot.zshrc ] && source ${AJ_CONFIG}/work/dr/.datarobot.zshrc
 
 # vim keybindings in shell
 bindkey -v
@@ -71,3 +72,6 @@ bindkey -v
 # for mtr to work
 # https://medium.com/macos-sh/mtr-my-traceroute-replacement-7827bd8efa42
 appendtopath /usr/local/sbin
+
+export STARSHIP_CONFIG=${AJ_CONFIG}/starship.toml
+eval $(starship init zsh)

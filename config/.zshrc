@@ -73,5 +73,7 @@ bindkey -v
 # https://medium.com/macos-sh/mtr-my-traceroute-replacement-7827bd8efa42
 appendtopath /usr/local/sbin
 
-export STARSHIP_CONFIG=${AJ_CONFIG}/starship.toml
-eval $(starship init zsh)
+if [[ $(command -v starship) ]] then
+	export STARSHIP_CONFIG=${AJ_CONFIG}/starship.toml
+	eval $(starship init zsh)
+fi

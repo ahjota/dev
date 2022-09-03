@@ -41,11 +41,11 @@ threshold = 30
 style = "bold yellow"
 
 [custom.drconfig]
-command = "echo staging.datarobot.com | "
+command = "yq '.endpoint' ~/.config/datarobot/drconfig.yaml | awk -F'/api/v2' '{print $1}' | awk -F'//' '{print $2}'"
 format = "ﮧ $output"
 description = "The contents of drconfig.yaml"
 shell = ["dash", "-eu"]
-when = "true"
+when = "test -e ~/.config/datarobot/drconfig.yaml && command -v yq"
 
 [custom.git_scope]
 # https://github.com/starship/starship/discussions/1252#discussioncomment-2461567

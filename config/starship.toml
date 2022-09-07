@@ -28,10 +28,6 @@ disabled = false
 [git_metrics]
 disabled = false
 
-[python]
-# Search for python3 and python first
-python_binary = ["python3", "python", "python2"]
-
 [[battery.display]]
 threshold = 10
 style = "bold red"

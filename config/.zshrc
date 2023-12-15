@@ -39,11 +39,11 @@ export N_PREFIX="$HOME/n"    # Added by n-install (see http://git.io/n-install-r
 appendtopath $N_PREFIX/bin
 
 # Yarn
-prependalltopath $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin
+#prependalltopath $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin
 
 # Go
-export GOROOT='/usr/local/go'
-prependtopath ${GOROOT}/bin
+#export GOROOT='/usr/local/go'
+#prependtopath ${GOROOT}/bin
 [[ -e go ]] && appendtopath "$(go env GOPATH)/bin" || echo "Go is not installed"
 
 # Python

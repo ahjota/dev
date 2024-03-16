@@ -37,6 +37,10 @@ disabled = false
 [git_branch]
 ignore_branches = ['master', 'main']
 
+[pijul_channel]
+# what even is this?
+disabled = true
+
 [[battery.display]]
 threshold = 10
 style = "bold red"

@@ -46,7 +46,7 @@ threshold = 30
 style = "bold yellow"
 
 [custom.drconfig]
-command = "yq '.endpoint' ~/.config/datarobot/drconfig.yaml | awk -F'/api/v2' '{print $1}' | awk -F'//' '{print $2}'"
+command = "yq '.endpoint' ~/.config/datarobot/drconfig.yaml | awk -F'/api/v2' '{print $1}' | awk -F'//' '{print $2}' | sed 's/datarobot.com/dr/g'"
 format = "ﮧ $output"
 description = "The contents of drconfig.yaml"
 shell = ["dash", "-eu"]

@@ -34,6 +34,9 @@ disabled = true
 [git_metrics]
 disabled = false
 
+[git_branch]
+ignore_branches = ['master', 'main']
+
 [[battery.display]]
 threshold = 10
 style = "bold red"

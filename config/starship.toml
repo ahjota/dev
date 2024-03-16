@@ -25,6 +25,12 @@ symbol = " "
 [status]
 disabled = false
 
+[git_status]
+# I've disabled git_status because it's slow for large repos, like the monorepo
+# at work. I'd love to be able to disable it conditionally, but that does not
+# exist in starship right now.
+disabled = true
+
 [git_metrics]
 disabled = false
 

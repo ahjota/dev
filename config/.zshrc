@@ -50,7 +50,7 @@ appendtopath $N_PREFIX/bin
 alias mypydiff='git diff --staged --name-only | xargs mypy'
 
 # thefuck
-eval $(thefuck --alias)
+[[ -e thefuck ]] && eval $(thefuck --alias)
 
 # personal alias
 command -v kubectl >/dev/null && alias k=kubectl

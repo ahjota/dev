@@ -74,6 +74,7 @@ bindkey -v
 appendtopath /usr/local/sbin
 
 if [[ $(command -v starship) ]] then
-	export STARSHIP_CONFIG=${AJ_CONFIG}/starship.toml
-	eval "$(starship init zsh)"
+  export STARSHIP_CONFIG=${AJ_CONFIG}/starship.toml
+  # You may still need to add this at the end of .zshrc for it to work
+  eval "$(starship init zsh)"
 fi

@@ -75,5 +75,5 @@ appendtopath /usr/local/sbin
 
 if [[ $(command -v starship) ]] then
 	export STARSHIP_CONFIG=${AJ_CONFIG}/starship.toml
-	eval $(starship init zsh)
+	eval "$(starship init zsh)"
 fi

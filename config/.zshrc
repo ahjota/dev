@@ -48,13 +48,13 @@ appendtopath $N_PREFIX/bin
 # Go
 #export GOROOT='/usr/local/go'
 #prependtopath ${GOROOT}/bin
-[[ -e go ]] && appendtopath "$(go env GOPATH)/bin" || echo "Go is not installed"
+command -v go >/dev/null && appendtopath "$(go env GOPATH)/bin" || echo "Go is not installed"
 
 # Python
 alias mypydiff='git diff --staged --name-only | xargs mypy'
 
 # thefuck
-[[ -e thefuck ]] && eval $(thefuck --alias)
+command -v thefuck >/dev/null && eval $(thefuck --alias)
 
 # personal alias
 command -v kubectl >/dev/null && alias k=kubectl
@@ -68,7 +68,7 @@ command -v kubectl >/dev/null && alias k=kubectl
 # TODO The above is way too slow
 prependalltopath /usr/local/opt/findutils/libexec/gnubin /usr/local/opt/gawk/libexec/gnubin /usr/local/opt/gsed/libexec/gnubin /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/grep/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/libtool/libexec/gnubin
 
-[ -f ${AJ_CONFIG}/work/dr/.datarobot.zshrc ] && source ${AJ_CONFIG}/work/dr/.datarobot.zshrc
+[[ -f ${AJ_CONFIG}/work/dr/.datarobot.zshrc ]] && source ${AJ_CONFIG}/work/dr/.datarobot.zshrc
 
 # vim keybindings in shell
 bindkey -v

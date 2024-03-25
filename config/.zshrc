@@ -17,6 +17,8 @@ plugins=(
   ssh-agent
 )
 
+source $ZSH/oh-my-zsh.sh
+
 # User configuration
 export WORKSPACE="$HOME/workspace"
 export AJ_CONFIG="$WORKSPACE/aj/config"

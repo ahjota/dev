@@ -1,3 +1,5 @@
+if [ "$AJ_CONFIG" ]; then return; fi
+
 ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
 plugins=(

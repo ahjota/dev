@@ -77,6 +77,10 @@ bindkey -v
 # https://medium.com/macos-sh/mtr-my-traceroute-replacement-7827bd8efa42
 appendtopath /usr/local/sbin
 
+if [[ $(command -v atuin) ]] then
+  eval "$(atuin init zsh)"
+fi
+
 if [[ $(command -v starship) ]] then
   export STARSHIP_CONFIG=${AJ_CONFIG}/starship.toml
   # You may still need to add this at the end of .zshrc for it to work

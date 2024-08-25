@@ -3,6 +3,16 @@ Files and scripts to keep me sane
 
 ## Prerequisites
 
+## Homebrew
+
+Key to most things I do on the Mac. https://brew.sh
+
+## pipx
+
+This is for installing Python packages outside of homebrew, in their own virtual environments.
+
+## Fira Code
+
 1. Fira Code Nerd Font
    ```sh
    # curl https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip

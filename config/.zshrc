@@ -38,6 +38,13 @@ zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_doc
 
 zi load unixorn/fzf-zsh-plugin
 
+# atuin
+# https://docs.atuin.sh/guide/installation/
+zinit ice as"command" from"gh-r" bpick"atuin-*.tar.gz" mv"atuin*/atuin -> atuin" \
+    atclone"./atuin init zsh > init.zsh; ./atuin gen-completions --shell zsh > _atuin" \
+    atpull"%atclone" src"init.zsh"
+zinit light atuinsh/atuin
+
 # User configuration
 export WORKSPACE="$HOME/workspace"
 export AJ_CONFIG="$WORKSPACE/aj/config"

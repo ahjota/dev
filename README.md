@@ -1,6 +1,9 @@
 # dev
 Files and scripts to keep me sane
 
+> Update 2024-08-26
+> 🪦 This repo is generally dead to me, and I am slowly migrating to a [dotfiles repo](https://github.com/ahjota/dotfiles) structured around chezmoi and antidote. At some point in the near future I'll be archiving this repo.
+
 ## Prerequisites
 
 ## Homebrew

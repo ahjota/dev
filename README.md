@@ -15,8 +15,8 @@ This is for installing Python packages outside of homebrew, in their own virtual
 
 1. Fira Code Nerd Font
    ```sh
-   # curl https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
-   brew tap homebrew/cask-fonts && brew install --cask font-fira-code-nerd-font
+   # curl https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
+   brew install font-fira-code-nerd-font
    ```
 
 ## Starship

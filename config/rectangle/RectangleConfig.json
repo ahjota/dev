@@ -2,7 +2,7 @@
   "bundleId" : "com.knollsoft.Rectangle",
   "defaults" : {
     "allowAnyShortcut" : {
-      "bool" : false
+      "bool" : true
     },
     "almostMaximizeHeight" : {
       "float" : 0
@@ -68,7 +68,7 @@
       "int" : 1
     },
     "footprintAlpha" : {
-      "float" : 0.30000001192092896
+      "float" : 0.3
     },
     "footprintAnimationDurationMultiplier" : {
       "float" : 0
@@ -203,7 +203,7 @@
       "int" : 1
     },
     "SUEnableAutomaticChecks" : {
-      "bool" : true
+      "bool" : false
     },
     "systemWideMouseDown" : {
       "int" : 0

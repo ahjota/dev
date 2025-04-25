@@ -1,24 +1,5 @@
 if [ "$AJ_CONFIG" ]; then return; fi
 
-ZSH_THEME="robbyrussell"
-COMPLETION_WAITING_DOTS="true"
-plugins=(
-  history-substring-search
-  z
-  fzf
-  git
-  git-auto-fetch
-  macos
-  brew
-  thefuck
-  vscode
-  docker
-  encode64
-  ssh-agent
-)
-
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
 export WORKSPACE="$HOME/workspace"
 export AJ_CONFIG="$WORKSPACE/aj/config"

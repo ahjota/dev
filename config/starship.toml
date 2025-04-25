@@ -32,7 +32,7 @@ disabled = false
 disabled = true
 
 [git_metrics]
-disabled = false
+disabled = true
 
 [git_branch]
 ignore_branches = ['master', 'main']

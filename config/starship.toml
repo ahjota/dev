@@ -64,3 +64,4 @@ format = 'as [$output]($style) '
 style = 'blue bold'
 shell = ["dash", "-e"]
 when = 'git rev-parse --is-inside-work-tree'
+disabled = true

@@ -23,11 +23,15 @@ function prependalltopath() {
 if [[ $(command -v n) ]] then
   export N_PREFIX="$HOME/n"    # Added by n-install (see http://git.io/n-install-repo).
   appendtopath $N_PREFIX/bin
+else
+  echo "n is not installed"
 fi
 
 # Yarn
 if [[ $(command -v yarn) ]] then
   prependalltopath $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin
+else
+  echo "yarn is not installed"
 fi
 
 # Go
@@ -43,10 +47,14 @@ fi
 alias mypydiff='git diff --staged --name-only | xargs mypy'
 
 # thefuck
-command -v thefuck >/dev/null && eval $(thefuck --alias)
+if [[ $(command -v thefuck) ]] then
+  eval $(thefuck --alias)
+fi
 
 # personal alias
-command -v kubectl >/dev/null && alias k=kubectl
+if [[ $(command -v kubectl) ]] then
+  alias k=kubectl
+fi
 
 # if I have GNU tools brew-installed, add them to PATH
 # inspired by https://stackoverflow.com/a/23357277/914510

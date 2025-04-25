@@ -20,16 +20,24 @@ function prependalltopath() {
 }
 
 # n
-export N_PREFIX="$HOME/n"    # Added by n-install (see http://git.io/n-install-repo).
-appendtopath $N_PREFIX/bin
+if [[ $(command -v n) ]] then
+  export N_PREFIX="$HOME/n"    # Added by n-install (see http://git.io/n-install-repo).
+  appendtopath $N_PREFIX/bin
+fi
 
 # Yarn
-#prependalltopath $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin
+if [[ $(command -v yarn) ]] then
+  prependalltopath $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin
+fi
 
 # Go
-#export GOROOT='/usr/local/go'
-#prependtopath ${GOROOT}/bin
-command -v go >/dev/null && appendtopath "$(go env GOPATH)/bin" || echo "Go is not installed"
+if [[ $(command -v go) ]] then
+  export GOROOT='/usr/local/go'
+  prependtopath ${GOROOT}/bin
+  appendtopath "$(go env GOPATH)/bin"
+else
+  echo "Go is not installed"
+fi
 
 # Python
 alias mypydiff='git diff --staged --name-only | xargs mypy'

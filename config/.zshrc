@@ -72,7 +72,9 @@ bindkey -v
 
 # for mtr to work
 # https://medium.com/macos-sh/mtr-my-traceroute-replacement-7827bd8efa42
-appendtopath /usr/local/sbin
+if [[ $(command -v mtr) ]] then
+  appendtopath /usr/local/sbin
+fi
 
 if [[ $(command -v atuin) ]] then
   eval "$(atuin init zsh)"
